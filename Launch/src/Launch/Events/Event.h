@@ -3,9 +3,6 @@
 
 #include "Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Launch {
 
 	// Events in Launch are currently blocking.

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Launch {
 
 	class LAUNCH_API MouseMovedEvent : public Event

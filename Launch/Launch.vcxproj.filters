@@ -4,6 +4,9 @@
     <Filter Include="Launch">
       <UniqueIdentifier>{E06644C0-CC08-6F96-B5C3-82EAA104F6E6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Launch\Events">
+      <UniqueIdentifier>{C496A50B-3057-2142-F991-6ABF6511661E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Launch\Logging">
       <UniqueIdentifier>{7627FC8A-62F5-EF90-4B89-60B737F6CBF5}</UniqueIdentifier>
     </Filter>
@@ -19,13 +22,22 @@
     <ClInclude Include="src\Launch\EntryPoint.h">
       <Filter>Launch</Filter>
     </ClInclude>
+    <ClInclude Include="src\Launch\Events\ApplicationEvent.h">
+      <Filter>Launch\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Launch\Events\Event.h">
+      <Filter>Launch\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Launch\Events\KeyEvent.h">
+      <Filter>Launch\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Launch\Events\MouseEvent.h">
+      <Filter>Launch\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Launch\Logging\Log.h">
       <Filter>Launch\Logging</Filter>
     </ClInclude>
-    <ClInclude Include="src\Launch\Events\Event.h" />
-    <ClInclude Include="src\Launch\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Launch\Events\KeyEvent.h" />
-    <ClInclude Include="src\Launch\Events\MouseEvent.h" />
+    <ClInclude Include="src\lnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Launch\Application.cpp">
@@ -34,5 +46,6 @@
     <ClCompile Include="src\Launch\Logging\Log.cpp">
       <Filter>Launch\Logging</Filter>
     </ClCompile>
+    <ClCompile Include="src\lnpch.cpp" />
   </ItemGroup>
 </Project>

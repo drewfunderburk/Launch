@@ -4,6 +4,7 @@ workspace "Launch"
     startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-$%{cfg.architecture}"
+
 project "Launch"
     location "Launch"
     kind "SharedLib"
@@ -11,6 +12,9 @@ project "Launch"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    pchheader "lnpch.h"
+    pchsource "Launch/src/lnpch.cpp"
 
     files 
     { 
@@ -21,6 +25,7 @@ project "Launch"
     includedirs
     {
         "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/src",
         "%{prj.name}/src/Launch"
     }
 
