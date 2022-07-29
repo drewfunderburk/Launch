@@ -5,6 +5,12 @@ workspace "Launch"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-$%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Launch/vendor/glfw/include"
+
+include "Launch/vendor/glfw"
+
 project "Launch"
     location "Launch"
     kind "SharedLib"
@@ -26,7 +32,14 @@ project "Launch"
     {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
-        "%{prj.name}/src/Launch"
+        "%{prj.name}/src/Launch",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
