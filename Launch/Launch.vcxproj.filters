@@ -7,6 +7,9 @@
     <Filter Include="Launch\Events">
       <UniqueIdentifier>{C496A50B-3057-2142-F991-6ABF6511661E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Launch\Layer">
+      <UniqueIdentifier>{AC0BA765-986E-360A-41F4-6EC02D36028D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Launch\Logging">
       <UniqueIdentifier>{7627FC8A-62F5-EF90-4B89-60B737F6CBF5}</UniqueIdentifier>
     </Filter>
@@ -40,6 +43,12 @@
     <ClInclude Include="src\Launch\Events\MouseEvent.h">
       <Filter>Launch\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Launch\Layer\Layer.h">
+      <Filter>Launch\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Launch\Layer\LayerStack.h">
+      <Filter>Launch\Layer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Launch\Logging\Log.h">
       <Filter>Launch\Logging</Filter>
     </ClInclude>
@@ -54,6 +63,12 @@
   <ItemGroup>
     <ClCompile Include="src\Launch\Application.cpp">
       <Filter>Launch</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Launch\Layer\Layer.cpp">
+      <Filter>Launch\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Launch\Layer\LayerStack.cpp">
+      <Filter>Launch\Layer</Filter>
     </ClCompile>
     <ClCompile Include="src\Launch\Logging\Log.cpp">
       <Filter>Launch\Logging</Filter>

@@ -20,6 +20,9 @@ namespace Launch
 		while (m_Running)
 		{
 			m_Window->OnUpdate();
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 		}
 	}
 	void Application::OnEvent(Event& e)
@@ -27,7 +30,20 @@ namespace Launch
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::OnWindowClosed));
 
-		LN_CORE_TRACE("{0}", e);
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
+	}
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
 	}
 	bool Application::OnWindowClosed(WindowCloseEvent& e)
 	{
