@@ -7,9 +7,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-$%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Launch/vendor/glfw/include"
+IncludeDir["GLFW"] = "Launch/vendor/GLFW/include"
+IncludeDir["Glad"] = "Launch/vendor/Glad/include"
 
-include "Launch/vendor/glfw"
+include "Launch/vendor/GLFW"
+include "Launch/vendor/Glad"
 
 project "Launch"
     location "Launch"
@@ -33,12 +35,14 @@ project "Launch"
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
         "%{prj.name}/src/Launch",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -50,7 +54,8 @@ project "Launch"
         defines
         {
             "LN_PLATFORM_WINDOWS",
-            "LN_BUILD_DLL"
+            "LN_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
